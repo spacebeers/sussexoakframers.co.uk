@@ -2,7 +2,7 @@
     $banner_image_primary = get_field('banner_image_primary');
     $banner_image_secondary = get_field('banner_image_secondary');
     $testimonial_image = get_field('testimonial_image');
-    $testimonials_link = get_theme_mod('mortgagestudio_pages_testimonials_link');
+    $testimonials_link = get_theme_mod('sussexoakframers_pages_testimonials_link');
     $blocks = get_field('blocks');
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class("page home_page"); ?>>
@@ -17,7 +17,7 @@
         </div>
         <div class="column">
             Speak to a qualified advisor.<br />
-            Call <a href="tel:<?php echo get_theme_mod( 'mortgagestudio_phone' ); ?>"><?php echo get_theme_mod( 'mortgagestudio_phone' ); ?></a>
+            Call <a href="tel:<?php echo get_theme_mod( 'sussexoakframers_phone' ); ?>"><?php echo get_theme_mod( 'sussexoakframers_phone' ); ?></a>
         </div>
     </section>
 
@@ -49,7 +49,7 @@
         <div class="banner-small banner-text">
             <?php the_content(); ?>
 
-            <?php edit_post_link( __( 'Edit', 'mortgagestudio' ), '<footer class="entry-footer"><span class="edit-link">', '</span></footer><!-- .entry-footer -->' ); ?>
+            <?php edit_post_link( __( 'Edit', 'sussexoakframers' ), '<footer class="entry-footer"><span class="edit-link">', '</span></footer><!-- .entry-footer -->' ); ?>
         </div>
     </section>
 

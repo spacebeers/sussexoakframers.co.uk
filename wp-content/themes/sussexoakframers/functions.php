@@ -1,5 +1,4 @@
 <?php
-    require_once('wp-bootstrap-navwalker.php');
     include('classes/social_widget.php');
 
     // Menus
@@ -7,7 +6,6 @@
 		'main_menu' => 'Main menu',
 		'sub_menu' => 'Sub menu'
 	) );
-
 
     add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
 
@@ -20,16 +18,16 @@
 
     // Fonts
     function wpb_add_google_fonts() {
-        wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:400,600|Open+Sans+Condensed:700', false );
+        wp_enqueue_style( 'wpb-google-fonts', 'https://fonts.googleapis.com/css?family=Junge', false );
     }
 
     add_action( 'wp_enqueue_scripts', 'wpb_add_google_fonts' );
 
     // Vendor scripts
-    function mortgagestudio_theme_name_scripts() {
-        wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/node_modules/bootstrap/dist/js/bootstrap.min.js', array ( 'jquery' ), 1.1, true);
+    function sussexoakframers_theme_name_scripts() {
+        //wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/node_modules/bootstrap/dist/js/bootstrap.min.js', array ( 'jquery' ), 1.1, true);
     }
-    add_action( 'wp_enqueue_scripts', 'mortgagestudio_theme_name_scripts' );
+    add_action( 'wp_enqueue_scripts', 'sussexoakframers_theme_name_scripts' );
 
 	// Post support
 	add_theme_support( 'post-thumbnails' );
@@ -38,113 +36,90 @@
 
     // Custom shortcodes
     function contact_email_shortcode() {
-        return get_theme_mod( 'mortgagestudio_email', '' );
+        return get_theme_mod( 'sussexoakframers_email', '' );
     }
     add_shortcode('contact_email', 'contact_email_shortcode');
 
     function contact_phone_shortcode() {
-        return get_theme_mod( 'mortgagestudio_phone', '' );
+        return get_theme_mod( 'sussexoakframers_phone', '' );
     }
     add_shortcode('contact_phone', 'contact_phone_shortcode');
 
-
-
 	// Theme customisers
-
-	function mortgagestudio_theme_customizer( $wp_customize ) {
+	function sussexoakframers_theme_customizer( $wp_customize ) {
 		// logo
-        $wp_customize->add_section( 'mortgagestudio_logo_section' , array(
-			'title'       => __( 'Logo', 'mortgagestudio' ),
+        $wp_customize->add_section( 'sussexoakframers_logo_section' , array(
+			'title'       => __( 'Logo', 'sussexoakframers' ),
 			'priority'    => 30,
 			'description' => 'Upload a logo to replace the default site name and description in the header',
 		));
 
-		$wp_customize->add_setting( 'mortgagestudio_logo' );
+		$wp_customize->add_setting( 'sussexoakframers_logo' );
 
-		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'mortgagestudio_logo', array(
-		    'label'    => __( 'Logo', 'mortgagestudio' ),
-		    'section'  => 'mortgagestudio_logo_section',
-		    'settings' => 'mortgagestudio_logo',
+		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'sussexoakframers_logo', array(
+		    'label'    => __( 'Logo', 'sussexoakframers' ),
+		    'section'  => 'sussexoakframers_logo_section',
+		    'settings' => 'sussexoakframers_logo',
 		)));
 
         // contact
-        $wp_customize->add_section( 'mortgagestudio_contact_section' , array(
-			'title'       => __( 'Contact', 'mortgagestudio' ),
+        $wp_customize->add_section( 'sussexoakframers_contact_section' , array(
+			'title'       => __( 'Contact', 'sussexoakframers' ),
 			'priority'    => 30,
 			'description' => 'Add the company contact details in here',
 		));
 
-		$wp_customize->add_setting( 'mortgagestudio_address' );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'mortgagestudio_address', array(
-		    'label'    => __( 'Address', 'mortgagestudio' ),
-		    'section'  => 'mortgagestudio_contact_section',
-		    'settings' => 'mortgagestudio_address',
+		$wp_customize->add_setting( 'sussexoakframers_address' );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sussexoakframers_address', array(
+		    'label'    => __( 'Address', 'sussexoakframers' ),
+		    'section'  => 'sussexoakframers_contact_section',
+		    'settings' => 'sussexoakframers_address',
             'type'			 => 'textarea'
 		)));
 
-		$wp_customize->add_setting( 'mortgagestudio_phone' );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'mortgagestudio_phone', array(
-		    'label'    => __( 'Phone', 'mortgagestudio' ),
-		    'section'  => 'mortgagestudio_contact_section',
-		    'settings' => 'mortgagestudio_phone',
+		$wp_customize->add_setting( 'sussexoakframers_phone' );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sussexoakframers_phone', array(
+		    'label'    => __( 'Phone', 'sussexoakframers' ),
+		    'section'  => 'sussexoakframers_contact_section',
+		    'settings' => 'sussexoakframers_phone',
             'type'			 => 'text'
 		)));
 
-		$wp_customize->add_setting( 'mortgagestudio_email' );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'mortgagestudio_email', array(
-		    'label'    => __( 'Email', 'mortgagestudio' ),
-		    'section'  => 'mortgagestudio_contact_section',
-		    'settings' => 'mortgagestudio_email',
+		$wp_customize->add_setting( 'sussexoakframers_email' );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sussexoakframers_email', array(
+		    'label'    => __( 'Email', 'sussexoakframers' ),
+		    'section'  => 'sussexoakframers_contact_section',
+		    'settings' => 'sussexoakframers_email',
             'type'			 => 'text'
 		)));
 
-		$wp_customize->add_setting( 'mortgagestudio_facebook' );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'mortgagestudio_facebook', array(
-		    'label'    => __( 'Facebook', 'mortgagestudio' ),
-		    'section'  => 'mortgagestudio_contact_section',
-		    'settings' => 'mortgagestudio_facebook',
+		$wp_customize->add_setting( 'sussexoakframers_facebook' );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sussexoakframers_facebook', array(
+		    'label'    => __( 'Facebook', 'sussexoakframers' ),
+		    'section'  => 'sussexoakframers_contact_section',
+		    'settings' => 'sussexoakframers_facebook',
             'type'			 => 'text'
 		)));
 
-		$wp_customize->add_setting( 'mortgagestudio_twitter' );
-		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'mortgagestudio_twitter', array(
-		    'label'    => __( 'Twitter', 'mortgagestudio' ),
-		    'section'  => 'mortgagestudio_contact_section',
-		    'settings' => 'mortgagestudio_twitter',
-            'type'			 => 'text'
-		)));
-
-        $wp_customize->add_section( 'mortgagestudio_pages_section' , array(
-			'title'       => __( 'Page links', 'mortgagestudio' ),
+        $wp_customize->add_section( 'sussexoakframers_pages_section' , array(
+			'title'       => __( 'Page links', 'sussexoakframers' ),
 			'priority'    => 30,
 			'description' => 'Set links to pages here',
 		));
 
-        $wp_customize->add_setting( 'mortgagestudio_pages_contact_link', array(
+        $wp_customize->add_setting( 'sussexoakframers_pages_contact_link', array(
             'capability' => 'edit_theme_options',
-            'sanitize_callback' => 'mortgagestudio_sanitize_dropdown_pages',
+            'sanitize_callback' => 'sussexoakframers_sanitize_dropdown_pages',
         ) );
 
-        $wp_customize->add_control( 'mortgagestudio_pages_contact_link', array(
+        $wp_customize->add_control( 'sussexoakframers_pages_contact_link', array(
             'type' => 'dropdown-pages',
-            'section' => 'mortgagestudio_pages_section', // Add a default or your own section
+            'section' => 'sussexoakframers_pages_section', // Add a default or your own section
             'label' => __( 'Set Contact page' ),
             'description' => __( 'Select a page to use as the contacts link.' ),
         ) );
 
-        $wp_customize->add_setting( 'mortgagestudio_pages_testimonials_link', array(
-            'capability' => 'edit_theme_options',
-            'sanitize_callback' => 'mortgagestudio_sanitize_dropdown_pages',
-        ) );
-
-        $wp_customize->add_control( 'mortgagestudio_pages_testimonials_link', array(
-            'type' => 'dropdown-pages',
-            'section' => 'mortgagestudio_pages_section', // Add a default or your own section
-            'label' => __( 'Set Testimonial page' ),
-            'description' => __( 'Select a page to use as the testimonials link.' ),
-        ) );
-
-        function mortgagestudio_sanitize_dropdown_pages( $page_id, $setting ) {
+        function sussexoakframers_sanitize_dropdown_pages( $page_id, $setting ) {
             // Ensure $input is an absolute integer.
             $page_id = absint( $page_id );
 
@@ -153,7 +128,7 @@
         }
 	}
 
-	add_action( 'customize_register', 'mortgagestudio_theme_customizer' );
+	add_action( 'customize_register', 'sussexoakframers_theme_customizer' );
 
 
     // Sidebars
@@ -161,9 +136,9 @@
     /**
     * Register widgetized area and update sidebar with default widgets
     */
-    function mortgagestudio_widgets_init() {
+    function sussexoakframers_widgets_init() {
         register_sidebar( array(
-            'name' => __( 'Footer area one', 'mortgagestudio' ),
+            'name' => __( 'Footer area one', 'sussexoakframers' ),
             'id' => 'footer-area-one-sidebar',
             'before_widget' => '<aside id="%1$s" class="widget %2$s">',
             'after_widget' => "</aside>",
@@ -172,7 +147,7 @@
         ));
 
         register_sidebar( array(
-            'name' => __( 'Footer area two', 'mortgagestudio' ),
+            'name' => __( 'Footer area two', 'sussexoakframers' ),
             'id' => 'footer-area-two-sidebar',
             'before_widget' => '<aside id="%1$s" class="widget %2$s">',
             'after_widget' => "</aside>",
@@ -181,7 +156,7 @@
         ));
 
         register_sidebar( array(
-            'name' => __( 'Footer area three', 'mortgagestudio' ),
+            'name' => __( 'Footer area three', 'sussexoakframers' ),
             'id' => 'footer-area-three-sidebar',
             'before_widget' => '<aside id="%1$s" class="widget %2$s">',
             'after_widget' => "</aside>",
@@ -190,7 +165,7 @@
         ));
 
         register_sidebar( array(
-            'name' => __( 'Footer area four', 'mortgagestudio' ),
+            'name' => __( 'Footer area four', 'sussexoakframers' ),
             'id' => 'footer-area-four-sidebar',
             'before_widget' => '<aside id="%1$s" class="widget %2$s">',
             'after_widget' => "</aside>",
@@ -199,7 +174,7 @@
         ));
 
         register_sidebar( array(
-            'name' => __( 'Footer information area', 'mortgagestudio' ),
+            'name' => __( 'Footer information area', 'sussexoakframers' ),
             'id' => 'footer-information-area-sidebar',
             'before_widget' => '<aside id="%1$s" class="widget %2$s">',
             'after_widget' => "</aside>",
@@ -207,7 +182,7 @@
             'after_title' => '</div>',
         ));
     }
-    add_action( 'widgets_init', 'mortgagestudio_widgets_init' );
+    add_action( 'widgets_init', 'sussexoakframers_widgets_init' );
 
     // Custom post types
    function create_posttype() {
@@ -273,10 +248,10 @@
                 echo $before_title . $title . $after_title; ?>
                     <ul class="contact-list">
                         <li class="phone">
-                            <a href="tel:<?php echo get_theme_mod( 'mortgagestudio_phone'); ?>"><?php echo get_theme_mod( 'mortgagestudio_phone', 'No phone number has been saved yet. Please add it in the theme configuration' ); ?></a>\
+                            <a href="tel:<?php echo get_theme_mod( 'sussexoakframers_phone'); ?>"><?php echo get_theme_mod( 'sussexoakframers_phone', 'No phone number has been saved yet. Please add it in the theme configuration' ); ?></a>\
                         </li>
                         <li class="email">
-                            <a href="mailto:<?php echo get_theme_mod( 'mortgagestudio_email'); ?>"><?php echo get_theme_mod( 'mortgagestudio_email', 'No email has been saved yet. Please add it in the theme configuration' ); ?></a>
+                            <a href="mailto:<?php echo get_theme_mod( 'sussexoakframers_email'); ?>"><?php echo get_theme_mod( 'sussexoakframers_email', 'No email has been saved yet. Please add it in the theme configuration' ); ?></a>
                         </li>
                     </ul>
             <?php endif;

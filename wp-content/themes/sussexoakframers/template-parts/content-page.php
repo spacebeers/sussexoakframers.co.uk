@@ -5,7 +5,7 @@
         <div class="columns">
             <?php the_content(); ?>
 
-            <?php edit_post_link( __( 'Edit', 'mortgagestudio' ), '<footer class="entry-footer"><span class="edit-link">', '</span></footer><!-- .entry-footer -->' ); ?>
+            <?php edit_post_link( __( 'Edit', 'sussexoakframers' ), '<footer class="entry-footer"><span class="edit-link">', '</span></footer><!-- .entry-footer -->' ); ?>
         </div>
 	</section>
 </article>

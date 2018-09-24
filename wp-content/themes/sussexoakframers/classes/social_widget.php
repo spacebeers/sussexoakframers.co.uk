@@ -26,23 +26,23 @@
             $after_title = "</div>";
             echo $before_title . $title . $after_title; ?>
                 <ul class="social-list">
-                    <?php if (get_theme_mod( 'mortgagestudio_facebook')): ?>
+                    <?php if (get_theme_mod( 'sussexoakframers_facebook')): ?>
                         <li class="facebook">
-                            <a href="<?php echo get_theme_mod( 'mortgagestudio_facebook'); ?>" target="_blank">
+                            <a href="<?php echo get_theme_mod( 'sussexoakframers_facebook'); ?>" target="_blank">
                                 <img src="<?php bloginfo('template_directory'); ?>/assets/facebook.png" />
                             </a>
                         </li>
                     <?php endif; ?>
-                    <?php if (get_theme_mod( 'mortgagestudio_twitter')): ?>
+                    <?php if (get_theme_mod( 'sussexoakframers_twitter')): ?>
                         <li class="twitter">
-                            <a href="<?php echo get_theme_mod( 'mortgagestudio_twitter'); ?>" target="_blank">
+                            <a href="<?php echo get_theme_mod( 'sussexoakframers_twitter'); ?>" target="_blank">
                                 <img src="<?php bloginfo('template_directory'); ?>/assets/twitter.png" />
                             </a>
                         </li>
                     <?php endif; ?>
-                    <?php if (get_theme_mod( 'mortgagestudio_youtube')): ?>
+                    <?php if (get_theme_mod( 'sussexoakframers_youtube')): ?>
                         <li class="google">
-                            <a href="<?php echo get_theme_mod( 'mortgagestudio_youtube'); ?>" target="_blank">
+                            <a href="<?php echo get_theme_mod( 'sussexoakframers_youtube'); ?>" target="_blank">
                                 <img src="<?php bloginfo('template_directory'); ?>/assets/youtube.png" />
                             </a>
                         </li>
