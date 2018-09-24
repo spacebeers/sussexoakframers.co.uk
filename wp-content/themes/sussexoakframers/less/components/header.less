@@ -1,0 +1,130 @@
+@nav-offset: 12px;
+@nav-brand-height-default: 40px;
+@nav-brand-height: 60px;
+
+.site-header {
+    .navbar-header {
+        @media (max-width: @grid-float-breakpoint) {
+            padding: 0 15px;
+        }
+    }
+
+    .navbar-nav {
+        margin: 10px -15px;
+    }
+
+    .navbar {
+        min-height: auto;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        margin-bottom: 0;
+        @media (min-width: @grid-float-breakpoint) {
+            margin-bottom: 18px;
+        }
+        font-family: @secondary-font;
+        font-weight: @weight-strong;
+
+        li {
+            &.active {
+                a {
+                    color: @primary;
+                }
+            }
+        }
+
+        a {
+            color: @palette-dark;
+            transition: color @ani-speed ease-in;
+            text-transform: uppercase;
+            @media (min-width: @grid-float-breakpoint) {
+                padding: 0 0 0 20px;
+                line-height: @nav-brand-height;
+            }
+
+            &:hover {
+                color: @primary;
+                opacity: 1;
+            }
+        }
+    }
+
+    .navbar-brand {
+        z-index: @zindex-navbar-fixed + 1;
+        position: relative;
+        padding: 0 !important;
+        width: 110px;
+        margin-right: 20px;
+        height: @nav-brand-height-default;
+        @media (min-width: @grid-float-breakpoint) {
+            width: 190px;
+            height: @nav-brand-height;
+            border-right: 1px solid @palette-mid;
+        }
+        img {
+            width: auto;
+            height: @nav-brand-height-default;
+            @media (min-width: @grid-float-breakpoint) {
+                height: @nav-brand-height;
+            }
+        }
+    }
+
+    .navbar-toggle {
+        margin: 0;
+        border: none;
+        color: @primary;
+    }
+
+    .phone-number {
+        color: @primary;
+        margin: 0;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        @media (min-width: @grid-float-breakpoint) {
+            padding-left: 30px;
+            border-left: 1px solid @palette-mid;
+        }
+
+        a {
+            color: currentColor;
+            padding: 0;
+        }
+    }
+
+    .dropdown-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        left: 20px;
+        background: @palette-lightest;
+
+        li {
+            border-bottom: 1px solid @primary;
+
+            a {
+                color: @palette-dark;
+                padding-top: 9px;
+                padding-bottom: 9px;
+                font-size: 1.3rem;
+                font-weight: @weight-medium;
+                line-height: 1.7rem;
+            }
+
+            &.active {
+                a {
+                    color: @palette-light !important;
+                }
+            }
+        }
+    }
+}
+
+#moove_gdpr_cookie_info_bar {
+    top: 0;
+    right: 0;
+    bottom: unset;
+    left: 0;
+}

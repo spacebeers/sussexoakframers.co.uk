@@ -1,0 +1,22 @@
+.contents {
+    background-color: @palette-mid;
+    padding: 20px 15px;
+    @media(min-width: @screen-sm-min) {
+        padding: 37px;
+    }
+
+    .columns {
+        /*@media(min-width: @screen-sm-min) {
+            column-count: 3;
+            column-gap: 4em;
+        }*/
+        border-top: 2px solid @palette-light;
+        border-bottom: 2px solid @palette-light;
+        padding: 25px 0;
+        color: @palette-dark;
+    }
+}
+
+.contents + .contents {
+    border-top: @spacer solid @body-bg;
+}
