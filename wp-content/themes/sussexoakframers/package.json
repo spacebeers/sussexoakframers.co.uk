@@ -14,5 +14,8 @@
     "gulp-watch-less": "latest",
     "less": "latest",
     "uglify": "latest"
+  },
+  "dependencies": {
+    "lightbox2": "^2.10.0"
   }
 }

@@ -4,10 +4,17 @@ p {
 
 h1, h2, h3, h4, h5, h6, p, ul {
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 40px;
+}
+
+.main-content {
+    p:first-of-type {
+        font-size: 2.0rem;
+    }
 }
 
 a {
+    color: @primary;
     transition: opacity @ani-speed ease-in;
 
     &:hover {
@@ -18,6 +25,23 @@ a {
 
 h1, h2, h3, h4, h5, h6 {
     font-family: @brand-font;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 3.6rem;
+    position: relative;
+
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 2px;
+        background-color: @palette-default;
+    }
 }
 
 h2 {
@@ -29,14 +53,10 @@ ul, ol {
     margin: 0 0 20px 0;
 }
 
-.btn {
-    font-size: 1.4rem;
-    font-family: @brand-font;
+.text-left {
+    text-align: left;
 }
 
-.on-link {
-    &::after {
-        content: ">";
-        margin-left: 3px;
-    }
+.text-right {
+    text-align: right;
 }

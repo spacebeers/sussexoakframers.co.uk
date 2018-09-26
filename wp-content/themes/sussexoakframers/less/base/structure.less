@@ -10,14 +10,15 @@ body {
     font-family: @brand-font;
     background: @bg-color;
     color: @palette-default;
+    border-top: 4px solid @primary;
+    border-bottom: 4px solid @primary;
     width: 100%;
-    height: 100%;
     text-align: center;
     font-weight: 100;
     font-size: 1.6rem;
     letter-spacing: 1.2px;
     margin: 0;
-    padding: 0;
+    padding: 30px 0;
     position: relative;
 }
 
@@ -30,18 +31,19 @@ body {
     }
 }
 
-.grid {
-    text-align: left;
-    display: inline-block;
-    margin-top: 60px;
+.constrainer {
+    width: 75%;
+    margin: 0 auto;
+}
 
+.grid {
+    width: 100%;
     @media (min-width: @mobile) {
         display: flex;
         justify-content: space-between;
 
-        .col {
-            flex: 0 0 40%;
-            width: 40%;
+        .column {
+            flex: 1;
         }
     }
 

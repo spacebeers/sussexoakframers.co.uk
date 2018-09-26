@@ -25,9 +25,15 @@
 
     // Vendor scripts
     function sussexoakframers_theme_name_scripts() {
-        //wp_enqueue_script( 'bootstrap', get_template_directory_uri() . '/node_modules/bootstrap/dist/js/bootstrap.min.js', array ( 'jquery' ), 1.1, true);
+        wp_enqueue_script( 'lightbox', get_template_directory_uri() . '/vendor/lightbox2/dist/js/lightbox.min.js', array ( 'jquery' ), 1.1, true);
     }
     add_action( 'wp_enqueue_scripts', 'sussexoakframers_theme_name_scripts' );
+
+    // Vendor styles
+    function sussexoakframers_theme_name_styles() {
+        wp_enqueue_style( 'lightbox', get_template_directory_uri() . '/vendor/lightbox2/dist/css/lightbox.min.css', false);
+    }
+    add_action( 'wp_enqueue_scripts', 'sussexoakframers_theme_name_styles' );
 
 	// Post support
 	add_theme_support( 'post-thumbnails' );
