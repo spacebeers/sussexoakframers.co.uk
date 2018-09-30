@@ -181,6 +181,13 @@ ol {
 .text-right {
   text-align: right;
 }
+.site-header {
+  padding: 15px 0;
+  margin-bottom: 0;
+}
+.site-header img {
+  margin-bottom: 30px;
+}
 .site-header ul {
   list-style: none;
   margin: 0;
@@ -200,7 +207,47 @@ ol {
           justify-content: center;
 }
 .site-header .menu a {
-  padding: 10px 5px;
+  padding: 10px;
+  color: #ffffff;
+  text-decoration: none;
+  -webkit-transition: color 0.3s linear;
+  transition: color 0.3s linear;
+}
+.site-header .menu a:hover {
+  color: #CB983D;
+}
+.site-header .active a {
+  color: #CB983D;
+}
+@media (min-width: 764px) {
+  .site-header .phone-button {
+    display: none;
+  }
+}
+@media (min-width: 764px) {
+  .site-header .menu-button {
+    display: none;
+  }
+}
+.site-main .page {
+  border-top: 5px solid #CB983D;
+  padding-top: 45px;
+}
+.site-main .home-page {
+  border-top: none;
+  padding-top: 0;
+}
+.slick-track {
+  height: 80vh;
+}
+.slick-track .slick-slide {
+  height: 100% !important;
+}
+.slick-track .slick-slide img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .site-footer nav {
   background: #CB983D;
@@ -220,6 +267,7 @@ ol {
 .site-footer nav .menu a {
   padding: 10px 5px;
   color: #ffffff;
+  text-decoration: none;
 }
 .site-footer ul {
   list-style: none;

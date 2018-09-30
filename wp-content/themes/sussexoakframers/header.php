@@ -21,14 +21,14 @@
     <header class="site-header" id="header">
         <div class="container">
             <?php if( get_theme_mod('sussexoakframers_phone') ): ?>
-                <a href="tel:<?php echo get_theme_mod( 'sussexoakframers_phone' ); ?>"><?php echo get_theme_mod( 'sussexoakframers_phone' ); ?></a>
+                <a href="tel:<?php echo get_theme_mod( 'sussexoakframers_phone' ); ?>" class="phone-button"><?php echo get_theme_mod( 'sussexoakframers_phone' ); ?></a>
             <?php endif; ?>
 
             <a class="site-logo" href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'>
                 <img src='<?php echo esc_url( get_theme_mod( 'sussexoakframers_logo' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'>
             </a>
 
-            <button type="button">
+            <button type="button" class="menu-button">
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>

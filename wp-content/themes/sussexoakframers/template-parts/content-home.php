@@ -1,11 +1,11 @@
-<article id="post-<?php the_ID(); ?>" <?php post_class("page"); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class("home-page"); ?>>
     <div class="hero-slider">
         <?php
             $images = get_field('gallery');
             if( $images ): ?>
                 <?php foreach( $images as $image ): ?>
                     <div class="slide">
-                        <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+                        <img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>" />
                     </div>
                 <?php endforeach; ?>
             <?php endif; ?>

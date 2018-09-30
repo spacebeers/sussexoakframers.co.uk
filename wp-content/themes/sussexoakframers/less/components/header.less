@@ -1,4 +1,11 @@
 .site-header {
+    padding: 15px 0;
+    margin-bottom: 0;
+
+    img {
+        margin-bottom: 30px;
+    }
+
     ul {
         list-style: none;
         margin: 0;
@@ -14,7 +21,31 @@
         justify-content: center;
 
         a {
-            padding: 10px 5px;
+            padding: 10px;
+            color: @palette-lightest;
+            text-decoration: none;
+            transition: color @ani-speed linear;
+
+            &:hover {
+                color: @primary;
+            }
+        }
+    }
+
+    .active a {
+        color: @primary;
+    }
+
+    .phone-button {
+        @media(min-width: @mobile) {
+            display: none;
+        }
+    }
+
+    .menu-button {
+
+        @media(min-width: @mobile) {
+            display: none;
         }
     }
 }
