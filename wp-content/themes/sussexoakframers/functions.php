@@ -3,8 +3,7 @@
 
     // Menus
 	register_nav_menus( array(
-		'main_menu' => 'Main menu',
-		'sub_menu' => 'Sub menu'
+		'main_menu' => 'Main menu'
 	) );
 
     add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
@@ -25,13 +24,19 @@
 
     // Vendor scripts
     function sussexoakframers_theme_name_scripts() {
+        wp_enqueue_script( 'app', get_template_directory_uri() . '/scripts/app.js', array ( 'jquery' ), 1.1, true);
         wp_enqueue_script( 'lightbox', get_template_directory_uri() . '/vendor/lightbox2/dist/js/lightbox.min.js', array ( 'jquery' ), 1.1, true);
+        wp_enqueue_script( 'slick', get_template_directory_uri() . '/vendor/slick/slick.min.js', array ( 'jquery' ), 1.1, true);
+        //wp_enqueue_script( 'slider', get_template_directory_uri() . '/vendor/tiny-slider/tiny-slider.min.js', 1.1, true);
     }
     add_action( 'wp_enqueue_scripts', 'sussexoakframers_theme_name_scripts' );
 
     // Vendor styles
     function sussexoakframers_theme_name_styles() {
         wp_enqueue_style( 'lightbox', get_template_directory_uri() . '/vendor/lightbox2/dist/css/lightbox.min.css', false);
+        //wp_enqueue_style( 'slider', get_template_directory_uri() . '/vendor/tiny-slider/tiny-slider.css', false);
+        wp_enqueue_style( 'slick', get_template_directory_uri() . '/vendor/slick/slick.css', false);
+        wp_enqueue_style( 'slick-theme', get_template_directory_uri() . '/vendor/slick/slick-theme.css', false);
     }
     add_action( 'wp_enqueue_scripts', 'sussexoakframers_theme_name_styles' );
 
@@ -190,22 +195,6 @@
     }
     add_action( 'widgets_init', 'sussexoakframers_widgets_init' );
 
-    // Custom post types
-   function create_posttype() {
-        register_post_type('testimonials',
-            array(
-                'labels' => array(
-                    'name' => __( 'Testinmonials' ),
-                    'singular_name' => __( 'Testinmonial' )
-                ),
-                'public' => true,
-                'has_archive' => false,
-                'rewrite' => array('slug' => 'testinmonials'),
-                'supports' => array('title', 'editor', 'thumbnail'),
-            )
-        );
-    }
-
     // Disable posts menu as we don't need it
     function remove_posts_menu() {
         remove_menu_page('edit.php');
@@ -214,8 +203,6 @@
     add_action('admin_init', 'remove_posts_menu');
 
     flush_rewrite_rules();
-
-    add_action( 'init', 'create_posttype' );
 
     // Contact details Widget
     // Register and load the widget

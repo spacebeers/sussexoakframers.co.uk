@@ -37,19 +37,11 @@
             </button>
 
             <nav>
-                <?php
-                    /*wp_nav_menu( array(
-                        'menu'              => 'main_menu',
-                        'theme_location'    => 'main_menu',
-                        'depth'             => 2,
-                        'container'         => 'div',
-                        'container_class'   => 'collapse navbar-collapse',
-                        'container_id'      => 'main-navigation',
-                        'menu_class'        => 'nav navbar-nav',
-                        'fallback_cb'       => 'WP_Bootstrap_Navwalker::fallback',
-                        'walker'            => new BootstrapNavMenuWalker())
-                    );*/
-                ?>
+                <?php wp_nav_menu(array(
+                    'theme_location'  => 'main_menu',
+                    'container'       => 'ul',
+                    'depth'           => 2
+                )); ?>
             </nav>
         </div>
     </header>

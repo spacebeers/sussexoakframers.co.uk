@@ -6,9 +6,8 @@
                 <?php wp_nav_menu(array(
                     'theme_location'  => 'main_menu',
                     'container'       => 'ul',
-                    'depth'           => 2
+                    'depth'           => 1
                 )); ?>
-                TEXT
             </div>
         </nav>
         <div class="container">
