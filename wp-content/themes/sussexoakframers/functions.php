@@ -1,5 +1,5 @@
 <?php
-    include('classes/social_widget.php');
+    include('classes/shortcodes.php');
 
     // Menus
 	register_nav_menus( array(
@@ -27,7 +27,7 @@
         wp_enqueue_script( 'app', get_template_directory_uri() . '/scripts/app.js', array ( 'jquery' ), 1.1, true);
         wp_enqueue_script( 'lightbox', get_template_directory_uri() . '/vendor/lightbox2/dist/js/lightbox.min.js', array ( 'jquery' ), 1.1, true);
         wp_enqueue_script( 'slick', get_template_directory_uri() . '/vendor/slick/slick.min.js', array ( 'jquery' ), 1.1, true);
-        //wp_enqueue_script( 'slider', get_template_directory_uri() . '/vendor/tiny-slider/tiny-slider.min.js', 1.1, true);
+        wp_enqueue_script( 'lazy', get_template_directory_uri() . '/vendor/jquery.lazy.min.js', 1.1, true);
     }
     add_action( 'wp_enqueue_scripts', 'sussexoakframers_theme_name_scripts' );
 
@@ -44,17 +44,6 @@
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 825, 510, true );
     add_post_type_support( 'page', 'excerpt' );
-
-    // Custom shortcodes
-    function contact_email_shortcode() {
-        return get_theme_mod( 'sussexoakframers_email', '' );
-    }
-    add_shortcode('contact_email', 'contact_email_shortcode');
-
-    function contact_phone_shortcode() {
-        return get_theme_mod( 'sussexoakframers_phone', '' );
-    }
-    add_shortcode('contact_phone', 'contact_phone_shortcode');
 
 	// Theme customisers
 	function sussexoakframers_theme_customizer( $wp_customize ) {
@@ -94,6 +83,14 @@
 		    'section'  => 'sussexoakframers_contact_section',
 		    'settings' => 'sussexoakframers_phone',
             'type'			 => 'text'
+        )));
+
+		$wp_customize->add_setting( 'sussexoakframers_mobile' );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sussexoakframers_mobile', array(
+		    'label'    => __( 'Mobile', 'sussexoakframers' ),
+		    'section'  => 'sussexoakframers_contact_section',
+		    'settings' => 'sussexoakframers_mobile',
+            'type'			 => 'text'
 		)));
 
 		$wp_customize->add_setting( 'sussexoakframers_email' );
@@ -109,6 +106,14 @@
 		    'label'    => __( 'Facebook', 'sussexoakframers' ),
 		    'section'  => 'sussexoakframers_contact_section',
 		    'settings' => 'sussexoakframers_facebook',
+            'type'			 => 'text'
+        )));
+
+		$wp_customize->add_setting( 'sussexoakframers_instagram' );
+		$wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'sussexoakframers_instagram', array(
+		    'label'    => __( 'Instagram', 'sussexoakframers' ),
+		    'section'  => 'sussexoakframers_contact_section',
+		    'settings' => 'sussexoakframers_instagram',
             'type'			 => 'text'
 		)));
 
@@ -204,76 +209,5 @@
 
     flush_rewrite_rules();
 
-    // Contact details Widget
-    // Register and load the widget
-    function wpb_load_widget() {
-        register_widget( 'wpb_contact_widget' );
-        register_widget( 'wpb_social_widget' );
-    }
-    add_action( 'widgets_init', 'wpb_load_widget' );
 
-    // Creating the widget
-    class wpb_contact_widget extends WP_Widget {
-
-        function __construct() {
-            parent::__construct(
-
-            // Base ID of your widget
-            'wpb_contact_widget',
-
-            // Widget name will appear in UI
-            __('Site Contact Details', 'wpb_widget_domain'),
-
-            // Widget description
-            array( 'description' => __( 'Contact details widget', 'wpb_widget_domain' ), ));
-        }
-
-        // Creating widget front-end
-        public function widget( $args, $instance ) {
-            $title = apply_filters( 'widget_title', $instance['title'] );
-
-            // before and after widget arguments are defined by themes
-            echo $args['before_widget'];
-            echo $before_widget;
-            $before_title = "<div class='widget-title'>";
-            $after_title = "</div>";
-            if ( $title ):
-                echo $before_title . $title . $after_title; ?>
-                    <ul class="contact-list">
-                        <li class="phone">
-                            <a href="tel:<?php echo get_theme_mod( 'sussexoakframers_phone'); ?>"><?php echo get_theme_mod( 'sussexoakframers_phone', 'No phone number has been saved yet. Please add it in the theme configuration' ); ?></a>\
-                        </li>
-                        <li class="email">
-                            <a href="mailto:<?php echo get_theme_mod( 'sussexoakframers_email'); ?>"><?php echo get_theme_mod( 'sussexoakframers_email', 'No email has been saved yet. Please add it in the theme configuration' ); ?></a>
-                        </li>
-                    </ul>
-            <?php endif;
-            echo $after_widget;
-        }
-
-        // Widget Backend
-        public function form( $instance ) {
-            if ( isset( $instance[ 'title' ] ) ) {
-                $title = $instance[ 'title' ];
-            } else {
-                $title = __( 'New title', 'wpb_widget_domain' );
-            }
-            // Widget admin form
-        ?>
-        <p>
-            <label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
-            <input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
-        </p>
-        <?php
-        }
-
-        // Updating widget replacing old instances with new
-        public function update( $new_instance, $old_instance ) {
-            $instance = array();
-            $instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
-            return $instance;
-        }
-    } // Class wpb_widget ends here
-
-    // Widgets ends
 ?>

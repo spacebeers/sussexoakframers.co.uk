@@ -15,10 +15,16 @@
                     <ul>
                         <?php foreach( $images as $image ): ?>
                             <li>
-                                <a href="<?php echo $image['url']; ?>" data-lightbox="roadtrip">
-                                    <img src="<?php echo $image['sizes']['thumbnail']; ?>" alt="<?php echo $image['alt']; ?>" />
+                                <a href="<?php echo $image['url']; ?>" data-lightbox="gallery" title="<?php echo $image['title']; ?>">
+                                    <?php if ($image['description']): ?>
+                                        <span class="hover">
+                                            <span class="hover-content">
+                                                <?php echo $image['description']; ?>
+                                            </span>
+                                        </span>
+                                    <?php endif; ?>
+                                    <img class="lazy" data-src="<?php echo $image['sizes']['thumbnail']; ?>" alt="<?php echo $image['alt']; ?>" />
                                 </a>
-                                <p><?php echo $image['caption']; ?></p>
                             </li>
                         <?php endforeach; ?>
                     </ul>

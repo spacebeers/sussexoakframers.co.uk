@@ -1,15 +1,24 @@
 .site-footer {
+    padding-bottom: 15px;
+
     nav {
         background: @primary;
         padding: 10px;
-        margin: 15px 0;
+        margin: 15px 0 25px 0;
+        text-align: center;
 
         .menu {
-            display: flex;
-            justify-content: center;
+            @media (min-width: @mobile) {
+                display: flex;
+                justify-content: center;
+            }
 
             a {
+                display: block;
                 padding: 10px 5px;
+                @media (min-width: @mobile) {
+                    padding: 10px;
+                }
                 color: @palette-lightest;
                 text-decoration: none;
             }

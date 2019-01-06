@@ -24,5 +24,37 @@
             <?php the_content(); ?>
             <?php edit_post_link( __( 'Edit', 'sussexoakframers' ), '<footer class="entry-footer"><span class="edit-link">', '</span></footer><!-- .entry-footer -->' ); ?>
         </div>
+
+        <?php if( have_rows('items') ): ?>
+
+        <div id="slider" class="flexslider">
+
+            <ul class="slides">
+
+            <?php while ( have_rows('items') ) : the_row(); ?>
+
+                <li>
+
+                    <?php $post_object = get_sub_field('page'); ?>
+
+                    <?php if( $post_object ): ?>
+
+                        <?php $post = $post_object; setup_postdata( $post ); ?>
+
+                        <a href="<?php the_permalink(); ?>"><img src="<?php the_field('featured_image'); ?>" alt="<?php the_title(); ?>" /></a>
+    <?php the_title(); ?>
+                        <?php wp_reset_postdata(); ?>
+
+                    <?php endif; ?>
+
+                </li>
+
+            <?php endwhile; ?>
+
+            </ul>
+
+        </div>
+
+    <?php endif; ?>
 	</section>
 </article>

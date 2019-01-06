@@ -15,7 +15,10 @@
 }
 
 .slick-track {
-    height: 80vh;
+    height: 55vh;
+    @media(min-width: @mobile) {
+        height: 65vh;
+    }
 
     .slick-slide {
         height: 100% !important;
@@ -36,7 +39,10 @@
         bottom: 0;
         left: 0;
         right: 0;
-        padding: 30px;
+        padding: 30px 15px;
+        @media(min-width: @mobile) {
+            padding: 30px;
+        }
         background: fade(#574B4B, 70%);
         z-index: 1;
     }
@@ -44,7 +50,10 @@
     p {
         padding: 0;
         margin: 0;
-        font-size: 2.4rem;
+        font-size: 1.8rem;
+        @media(min-width: @mobile) {
+            font-size: 2.4rem;
+        }
     }
 
     .slick-dots {
@@ -67,24 +76,88 @@
         list-style: none;
         margin: 0;
         padding: 0;
-        display: flex;
-        flex-wrap: wrap;
+        @media(min-width: @mobile) {
+            display: flex;
+            flex-wrap: wrap;
+        }
 
         li {
-            flex-grow: 0;
-            flex-shrink: 0;
-            flex-basis: ~"calc(25% - 10px)";
-            margin: 5px;
+            margin: 0 5px 10px 5px;
+            @media(min-width: @mobile) {
+                flex-grow: 0;
+                flex-shrink: 0;
+                flex-basis: ~"calc(25% - 10px)";
+            }
 
             img {
                 width: 100%;
-                height: 100%;
-                object-fit: cover;
+                height: auto;
+                display: block;
+                @media(min-width: @mobile) {
+                    height: 100%;
+                    object-fit: cover;
+                }
             }
         }
 
         a {
             display: block;
+            position: relative;
+
+            .hover {
+                opacity: 0;
+                transition: opacity @ani-speed linear;
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                bottom: 5px;
+                left: 5px;
+                background: fade(#574B4B, 70%);
+
+                .hover-content {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    padding: 10px;
+                }
+            }
+
+            &:hover {
+                .hover {
+                    opacity: 1;
+                }
+            }
         }
     }
+}
+
+.contact-list {
+    display: inline-block;
+    list-style: none;
+    font-size: 1.8rem;
+    margin-top: 20px;
+
+    li + li {
+        margin-top: 27px;
+    }
+
+    a {
+        width: 100%;
+        display: flex;
+        position: relative;
+        justify-content: flex-start;
+        justify-items: center;
+        text-decoration: none;
+        line-height: 32px;
+    }
+
+    svg {
+        color: @palette-lightest;
+        margin-right: 16px;
+    }
+}
+
+.wpforms-container {
+    text-align: left;
 }

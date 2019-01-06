@@ -1,9 +1,71 @@
 .site-header {
     padding: 15px 0;
     margin-bottom: 0;
+    position: relative;
+
+    .site-logo {
+        display: block;
+        margin: auto;
+
+        width: 50%;
+        max-width: 200px;
+        @media (min-width: @mobile) {
+            max-width: 500px;
+        }
+    }
+
+    &.open {
+        nav {
+            display: block;
+            opacity: 1;
+        }
+    }
+
+    #close {
+        display: none;
+    }
+
+    nav {
+        @media (max-width: @mobile-max) {
+            overflow: auto;
+            background: fade(#111, 80%);
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 3;
+            padding: 60px 30px;
+            display: none;
+            opacity: 0;
+            transition: opacity 3s linear;
+
+            #close {
+                display: block;
+                position: fixed;
+                top: 36px;
+                right: 16px;
+                z-index: 4;
+            }
+        }
+    }
+
+    button {
+        background: transparent;
+        border: none;
+        padding: 0;
+        margin: 0;
+        outline: none;
+        color: @secondary;
+        cursor: pointer;
+    }
 
     img {
-        margin-bottom: 30px;
+        @media(min-width: @mobile) {
+            margin-bottom: 30px;
+        }
+        width: 100%;
+        height: auto;
     }
 
     ul {
@@ -12,16 +74,69 @@
         padding: 0;
 
         ul {
-            display: none;
+            padding: 0 0 10px 0;
+            font-size: 2rem;
+            border-top: 1px solid @palette-lightest;
+            border-bottom: 1px solid @palette-lightest;
+
+            @media(min-width: @mobile) {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                position: absolute;
+                background: @bg-color;
+                z-index: 1;
+                padding: 0 0 10px 0;
+                border: 1px solid @palette-lightest;
+                border-radius: 2px;
+            }
+
+            &::after {
+                @media(min-width: @mobile) {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    top: -6px;
+                    left: 50%;
+                    transform: translateX(-50%) rotate(225deg);
+                    width: 10px;
+                    height: 10px;
+                    background: @bg-color;
+                    border-right: 1px solid @palette-lightest;
+                    border-bottom: 1px solid @palette-lightest;
+                }
+            }
+
+            li {
+                padding: 10px 10px 0 10px;
+                white-space: nowrap;
+            }
+        }
+
+        li {
+            position: relative;
+        }
+
+        li:hover {
+            ul {
+                display: block;
+            }
         }
     }
 
     .menu {
-        display: flex;
-        justify-content: center;
+        font-size: 3.4rem;
+        @media (min-width: @mobile) {
+            font-size: 1.6rem;
+            display: flex;
+            justify-content: center;
+        }
 
         a {
-            padding: 10px;
+            padding: 10px 20px;
+            display: block;
             color: @palette-lightest;
             text-decoration: none;
             transition: color @ani-speed linear;
@@ -32,18 +147,25 @@
         }
     }
 
-    .active a {
-        color: @primary;
+    .active > a, .current-page-parent > a {
+        color: @secondary;
     }
 
     .phone-button {
+        position: absolute;
+        top: 30px;
+        left: 15px;
+        display: block;
         @media(min-width: @mobile) {
             display: none;
         }
     }
 
     .menu-button {
-
+        position: absolute;
+        top: 30px;
+        right: 15px;
+        display: block;
         @media(min-width: @mobile) {
             display: none;
         }

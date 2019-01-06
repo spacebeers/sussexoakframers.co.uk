@@ -1,5 +1,5 @@
 p {
-    margin: 0 0 15px 0;
+    margin: 0 0 20px 0;
 }
 
 h1, h2, h3, h4, h5, h6, p, ul {
@@ -14,7 +14,7 @@ h1, h2, h3, h4, h5, h6, p, ul {
 }
 
 a {
-    color: @primary;
+    color: @secondary;
     transition: opacity @ani-speed ease-in;
 
     &:hover {
@@ -29,7 +29,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-    font-size: 3.6rem;
+    font-size: 2.4rem;
+    @media (min-width: @mobile) {
+        font-size: 3.6rem;
+    }
+
     position: relative;
 
     &::after {
