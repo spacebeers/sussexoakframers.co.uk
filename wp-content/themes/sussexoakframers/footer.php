@@ -4,7 +4,7 @@
         <nav>
             <div class="container">
                 <?php wp_nav_menu(array(
-                    'theme_location'  => 'main_menu',
+                    'theme_location'  => 'footer_menu',
                     'container'       => 'ul',
                     'depth'           => 1
                 )); ?>

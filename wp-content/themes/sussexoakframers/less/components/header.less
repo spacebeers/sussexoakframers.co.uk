@@ -8,9 +8,9 @@
         margin: auto;
 
         width: 50%;
-        max-width: 200px;
         @media (min-width: @mobile) {
-            max-width: 500px;
+            width: 35%;
+            max-width: 350px;
         }
     }
 
@@ -56,7 +56,7 @@
         padding: 0;
         margin: 0;
         outline: none;
-        color: @secondary;
+        color: @primary;
         cursor: pointer;
     }
 
@@ -135,7 +135,7 @@
         }
 
         a {
-            padding: 10px 20px;
+            padding: 10px;
             display: block;
             color: @palette-lightest;
             text-decoration: none;
@@ -148,7 +148,7 @@
     }
 
     .active > a, .current-page-parent > a {
-        color: @secondary;
+        color: @primary;
     }
 
     .phone-button {

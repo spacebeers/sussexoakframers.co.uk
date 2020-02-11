@@ -19,7 +19,7 @@ html {
 }
 body {
   font-family: 'Junge', 'Arial', 'sans-serif';
-  background: #3e3838;
+  background: #574B4B;
   color: #E5DBD2;
   width: 100%;
   text-align: center;
@@ -128,7 +128,7 @@ div.wpforms-container-full .wpforms-form .wpforms-required-label {
   height: 100%;
 }
 .slick-slide {
-  border: 4px solid #3e3838;
+  border: 4px solid #574B4B;
   border-top: none;
   border-bottom: none;
 }
@@ -228,6 +228,32 @@ ol {
 .site-header #close {
   display: none;
 }
+.site-header .container {
+  position: relative;
+}
+.site-header .social-list {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+@media (min-width: 763px) {
+  .site-header .social-list {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+.site-header .social-list li + li {
+  margin-left: 12px;
+}
+.site-header .social-list a {
+  color: #E5DBD2;
+}
 @media (max-width: 763px) {
   .site-header nav {
     overflow: auto;
@@ -290,7 +316,7 @@ ol {
         -ms-transform: translateX(-50%);
             transform: translateX(-50%);
     position: absolute;
-    background: #3e3838;
+    background: #574B4B;
     z-index: 1;
     padding: 0 0 10px 0;
     border: 1px solid #ffffff;
@@ -309,7 +335,7 @@ ol {
             transform: translateX(-50%) rotate(225deg);
     width: 10px;
     height: 10px;
-    background: #3e3838;
+    background: #574B4B;
     border-right: 1px solid #ffffff;
     border-bottom: 1px solid #ffffff;
   }
@@ -350,6 +376,17 @@ ol {
 }
 .site-header .menu a:hover {
   color: #CB983D;
+}
+.site-header .menu li + li a::before {
+  content: "";
+  width: 1px;
+  background: #E5DBD2;
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 0;
+  bottom: 12px;
+  opacity: 0.1;
 }
 .site-header .active > a,
 .site-header .current-page-parent > a {

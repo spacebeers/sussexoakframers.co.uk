@@ -20,6 +20,31 @@
 <body <?php body_class(); ?>>
     <header class="site-header" id="header">
         <div class="container">
+            <ul class="social-list">
+                <li>
+                    <a href="<?php echo do_shortcode("[contact_facebook]"); ?>" target="_black">
+                        <svg width="22px" height="22px" viewBox="0 0 32 32">
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Group" transform="translate(-1.000000, 0.000000)" fill="currentColor">
+                                    <path d="M31.6667,0 L2.3337,0 C1.5967,0 0.9997,0.597 0.9997,1.333 L0.9997,30.667 C0.9997,31.403 1.5967,32 2.3337,32 L17.9997,32 L17.9997,20 L13.9997,20 L13.9997,15 L17.9997,15 L17.9997,11 C17.9997,6.867 20.6167,4.833 24.3037,4.833 C26.0697,4.833 27.5877,4.965 28.0297,5.023 L28.0297,9.343 L25.4727,9.344 C23.4677,9.344 22.9997,10.297 22.9997,11.695 L22.9997,15 L27.9997,15 L26.9997,20 L22.9997,20 L23.0797,32 L31.6667,32 C32.4027,32 32.9997,31.403 32.9997,30.667 L32.9997,1.333 C32.9997,0.597 32.4027,0 31.6667,0" id="Fill-3"></path>
+                                </g>
+                            </g>
+                        </svg>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo do_shortcode("[contact_instagram]"); ?>" target="_black">
+                        <svg version="1.1" id="Layer_1" x="0px" y="0px" width="22px" height="22px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+                        <path fill="currentColor" d="M28.2,0H3.8C1.7,0,0,1.7,0,3.8v24.4C0,30.3,1.7,32,3.8,32h24.4c2.1,0,3.8-1.7,3.8-3.8V3.8
+                            C32,1.7,30.3,0,28.2,0z M24,4h3c0.6,0,1,0.4,1,1v3c0,0.6-0.4,1-1,1h-3c-0.6,0-1-0.4-1-1V5C23,4.4,23.4,4,24,4z M16,9.9
+                            c3.4,0,6.2,2.7,6.2,6.1c0,3.4-2.8,6.1-6.2,6.1c-3.4,0-6.2-2.7-6.2-6.1C9.9,12.6,12.6,9.9,16,9.9z M28,29H4c-0.6,0-1-0.4-1-1V13h4
+                            c-0.5,0.8-0.7,2.1-0.7,3c0,5.4,4.4,9.7,9.7,9.7c5.4,0,9.7-4.4,9.7-9.7c0-0.9-0.1-2.3-0.8-3h4v15C29,28.6,28.6,29,28,29z"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+
+
             <?php if( get_theme_mod('sussexoakframers_phone') ): ?>
                 <a href="tel:<?php echo get_theme_mod( 'sussexoakframers_phone' ); ?>" class="phone-button">
                     <svg width="25px" height="25px" viewBox="0 0 32 32" version="1.1">

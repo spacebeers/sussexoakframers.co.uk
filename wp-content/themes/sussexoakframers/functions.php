@@ -3,7 +3,8 @@
 
     // Menus
 	register_nav_menus( array(
-		'main_menu' => 'Main menu'
+        'main_menu' => 'Main menu',
+        'footer_menu' => 'Footer menu'
 	) );
 
     add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
